@@ -24,30 +24,38 @@ limitations under the License.
 
 > Round a complex number to the nearest multiple of `10^n` toward negative infinity.
 
-<section class="installation">
 
-## Installation
-
-```bash
-npm install @stdlib/math-base-special-cfloorn
-```
-
-Alternatively,
-
--   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
--   If you are using Deno, visit the [`deno` branch][deno-url].
--   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
-
-The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
-
-</section>
 
 <section class="usage">
 
 ## Usage
 
+To use in Observable,
+
 ```javascript
-var cfloorn = require( '@stdlib/math-base-special-cfloorn' );
+cfloorn = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-cfloorn@umd/browser.js' )
+```
+
+To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
+
+```javascript
+var cfloorn = require( 'path/to/vendor/umd/math-base-special-cfloorn/index.js' )
+```
+
+To include the bundle in a webpage,
+
+```html
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-cfloorn@umd/browser.js"></script>
+```
+
+If no recognized module system is present, access bundle contents via the global scope:
+
+```html
+<script type="text/javascript">
+(function () {
+    window.cfloorn;
+})();
+</script>
 ```
 
 #### cfloorn( \[out,] re, im, n )
@@ -114,13 +122,18 @@ var bool = ( v === out );
 
 <!-- eslint no-undef: "error" -->
 
-```javascript
-var Complex128 = require( '@stdlib/complex-float64' );
-var randu = require( '@stdlib/random-base-randu' );
-var ceil = require( '@stdlib/math-base-special-ceil' );
-var real = require( '@stdlib/complex-real' );
-var imag = require( '@stdlib/complex-imag' );
-var cfloorn = require( '@stdlib/math-base-special-cfloorn' );
+```html
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/complex-float64@umd/browser.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@umd/browser.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-ceil@umd/browser.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/complex-real@umd/browser.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/complex-imag@umd/browser.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-cfloorn@umd/browser.js"></script>
+<script type="text/javascript">
+(function () {
 
 var re;
 var im;
@@ -141,6 +154,11 @@ for ( i = 0; i < 100; i++ ) {
 
     console.log( 'floorn(%s,%s) = %s', z.toString(), n.toString(), w.toString() );
 }
+
+})();
+</script>
+</body>
+</html>
 ```
 
 </section>
@@ -236,11 +254,11 @@ Copyright &copy; 2016-2023. The Stdlib [Authors][stdlib-authors].
 
 <!-- <related-links> -->
 
-[@stdlib/math/base/special/cceiln]: https://github.com/stdlib-js/math-base-special-cceiln
+[@stdlib/math/base/special/cceiln]: https://github.com/stdlib-js/math-base-special-cceiln/tree/umd
 
-[@stdlib/math/base/special/cfloor]: https://github.com/stdlib-js/math-base-special-cfloor
+[@stdlib/math/base/special/cfloor]: https://github.com/stdlib-js/math-base-special-cfloor/tree/umd
 
-[@stdlib/math/base/special/croundn]: https://github.com/stdlib-js/math-base-special-croundn
+[@stdlib/math/base/special/croundn]: https://github.com/stdlib-js/math-base-special-croundn/tree/umd
 
 <!-- </related-links> -->
 
