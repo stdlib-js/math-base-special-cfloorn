@@ -18,8 +18,8 @@
 
 #include "stdlib/math/base/special/cfloorn.h"
 #include "stdlib/math/base/special/floorn.h"
-#include "stdlib/complex/float64.h"
-#include "stdlib/complex/reim.h"
+#include "stdlib/complex/float64/ctor.h"
+#include "stdlib/complex/float64/reim.h"
 
 /**
 * Rounds each component of a double-precision complex floating-point number to the nearest multiple of `10^n` toward negative infinity.
@@ -29,7 +29,7 @@
 * @return        result
 *
 * @example
-* #include "stdlib/complex/float64.h"
+* #include "stdlib/complex/float64/ctor.h"
 * #include "stdlib/complex/real.h"
 * #include "stdlib/complex/imag.h"
 *
@@ -47,7 +47,7 @@ stdlib_complex128_t stdlib_base_cfloorn( const stdlib_complex128_t z, const int3
 	double re;
 	double im;
 
-	stdlib_reim( z, &re, &im );
+	stdlib_complex128_reim( z, &re, &im );
 
 	re = stdlib_base_floorn( re, n );
 	im = stdlib_base_floorn( im, n );

@@ -68,7 +68,7 @@ var cfloorn = require( '@stdlib/math-base-special-cfloorn' );
 Rounds each component of a double-precision complex floating-point number to the nearest multiple of `10^n` toward negative infinity.
 
 ```javascript
-var Complex128 = require( '@stdlib/complex-float64' );
+var Complex128 = require( '@stdlib/complex-float64-ctor' );
 var real = require( '@stdlib/complex-real' );
 var imag = require( '@stdlib/complex-imag' );
 
@@ -123,7 +123,7 @@ im = imag( v );
 -   When operating on [floating-point numbers][ieee754] in bases other than `2`, rounding to specified digits can be **inexact**. For example,
 
     ```javascript
-    var Complex128 = require( '@stdlib/complex-float64' );
+    var Complex128 = require( '@stdlib/complex-float64-ctor' );
     var real = require( '@stdlib/complex-real' );
     var imag = require( '@stdlib/complex-imag' );
 
@@ -152,7 +152,7 @@ im = imag( v );
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-var Complex128 = require( '@stdlib/complex-float64' );
+var Complex128 = require( '@stdlib/complex-float64-ctor' );
 var randu = require( '@stdlib/random-base-randu' );
 var uniform = require( '@stdlib/random-base-uniform' );
 var floor = require( '@stdlib/math-base-special-floor' );
@@ -209,7 +209,7 @@ for ( i = 0; i < 100; i++ ) {
 Rounds each component of a double-precision complex floating-point number to the nearest multiple of `10^n` toward negative infinity.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include "stdlib/complex/real.h"
 #include "stdlib/complex/imag.h"
 
@@ -252,8 +252,8 @@ stdlib_complex128_t stdlib_base_cfloorn( const stdlib_complex128_t z, const int3
 
 ```c
 #include "stdlib/math/base/special/cfloorn.h"
-#include "stdlib/complex/float64.h"
-#include "stdlib/complex/reim.h"
+#include "stdlib/complex/float64/ctor.h"
+#include "stdlib/complex/float64/reim.h"
 #include <stdio.h>
 
 int main() {
@@ -274,8 +274,8 @@ int main() {
     for ( i = 0; i < 4; i++ ) {
         v = x[ i ];
         y = stdlib_base_cfloorn( v, -2 );
-        stdlib_reim( v, &re1, &im1 );
-        stdlib_reim( y, &re2, &im2 );
+        stdlib_complex128_reim( v, &re1, &im1 );
+        stdlib_complex128_reim( y, &re2, &im2 );
         printf( "cfloorn(%lf + %lfi, -2) = %lf + %lfi\n", re1, im1, re2, im2 );
     }
 }
