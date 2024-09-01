@@ -117,13 +117,11 @@ A total of 2 people contributed to this release. Thank you to the following cont
 
 ### BREAKING CHANGES
 
--   [`e627b29`](https://github.com/stdlib-js/stdlib/commit/e627b29f2f35ca07e0780eeb16088b4db4e2d766): remove support for `out` argument and add C implementations
--   [`e627b29`](https://github.com/stdlib-js/stdlib/commit/e627b29f2f35ca07e0780eeb16088b4db4e2d766): remove `out` argument support 
+-   [`e627b29`](https://github.com/stdlib-js/stdlib/commit/e627b29f2f35ca07e0780eeb16088b4db4e2d766): remove `out` argument support
 
     -   To migrate, users who previously provided an output array in which to write real and imaginary components should update to provide a complex number as input and to handle a complex number as output.
 
--   [`58832ee`](https://github.com/stdlib-js/stdlib/commit/58832eef6d93e6519622148242600eae93dca4d9): update minimum TypeScript version
--   [`58832ee`](https://github.com/stdlib-js/stdlib/commit/58832eef6d93e6519622148242600eae93dca4d9): update minimum TypeScript version to 4.1 
+-   [`58832ee`](https://github.com/stdlib-js/stdlib/commit/58832eef6d93e6519622148242600eae93dca4d9): update minimum TypeScript version to 4.1
 
     -   To migrate, users should upgrade their TypeScript version to at least version 4.1.
 
