@@ -35,14 +35,32 @@ limitations under the License.
 
 > Round each component of a double-precision complex floating-point number to the nearest multiple of `10^n` toward negative infinity.
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/math-base-special-cfloorn
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import cfloorn from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-cfloorn@deno/mod.js';
+var cfloorn = require( '@stdlib/math-base-special-cfloorn' );
 ```
 
 #### cfloorn( z, n )
@@ -50,48 +68,22 @@ import cfloorn from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-cfl
 Rounds each component of a double-precision complex floating-point number to the nearest multiple of `10^n` toward negative infinity.
 
 ```javascript
-import Complex128 from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float64-ctor@deno/mod.js';
-import real from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float64-real@deno/mod.js';
-import imag from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float64-imag@deno/mod.js';
+var Complex128 = require( '@stdlib/complex-float64-ctor' );
 
 // Round components to 2 decimal places:
 var v = cfloorn( new Complex128( -3.141592653589793, 3.141592653589793 ), -2 );
-// returns <Complex128>
-
-var re = real( v );
-// returns -3.15
-
-var im = imag( v );
-// returns 3.14
+// returns <Complex128>[ -3.15, 3.14 ]
 
 // If n = 0, `cfloorn` behaves like `cfloor`:
 v = cfloorn( new Complex128( -3.141592653589793, 3.141592653589793 ), 0 );
-// returns <Complex128>
-
-re = real( v );
-// returns -4.0
-
-im = imag( v );
-// returns 3.0
+// returns <Complex128>[ -4.0, 3.0 ]
 
 // Round components to the nearest thousand:
 v = cfloorn( new Complex128( -12368.0, 12368.0 ), 3 );
-// returns <Complex128>
-
-re = real( v );
-// returns -13000.0
-
-im = imag( v );
-// returns 12000.0
+// returns <Complex128>[ -13000.0, 12000.0 ]
 
 v = cfloorn( new Complex128( NaN, NaN ), 0 );
-// returns <Complex128>
-
-re = real( v );
-// returns NaN
-
-im = imag( v );
-// returns NaN
+// returns <Complex128>[ NaN, NaN ]
 ```
 
 </section>
@@ -105,22 +97,14 @@ im = imag( v );
 -   When operating on [floating-point numbers][ieee754] in bases other than `2`, rounding to specified digits can be **inexact**. For example,
 
     ```javascript
-    import Complex128 from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float64-ctor@deno/mod.js';
-    import real from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float64-real@deno/mod.js';
-    import imag from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float64-imag@deno/mod.js';
+    var Complex128 = require( '@stdlib/complex-float64-ctor' );
 
     var x = -0.2 - 0.1;
     // returns -0.30000000000000004
 
     // Should round components to 0.3:
     var v = cfloorn( new Complex128( x, x ), -16 );
-    // returns <Complex128>
-
-    var re = real( v );
-    // returns -0.3000000000000001
-
-    var im = imag( v );
-    // returns -0.3000000000000001
+    // returns <Complex128>[ -0.3000000000000001, -0.3000000000000001 ]
     ```
 
 </section>
@@ -134,10 +118,10 @@ im = imag( v );
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-import Complex128 from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float64-ctor@deno/mod.js';
-import uniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-uniform@deno/mod.js';
-import randint from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-discrete-uniform@deno/mod.js';
-import cfloorn from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-cfloorn@deno/mod.js';
+var Complex128 = require( '@stdlib/complex-float64-ctor' );
+var uniform = require( '@stdlib/random-base-uniform' );
+var randint = require( '@stdlib/random-base-discrete-uniform' );
+var cfloorn = require( '@stdlib/math-base-special-cfloorn' );
 
 var z;
 var w;
@@ -160,7 +144,114 @@ for ( i = 0; i < 100; i++ ) {
 
 <!-- C interface documentation. -->
 
+* * *
 
+<section class="c">
+
+## C APIs
+
+<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
+
+<section class="intro">
+
+</section>
+
+<!-- /.intro -->
+
+<!-- C usage documentation. -->
+
+<section class="usage">
+
+### Usage
+
+```c
+#include "stdlib/math/base/special/cfloorn.h"
+```
+
+#### stdlib_base_cfloorn( z, n )
+
+Rounds each component of a double-precision complex floating-point number to the nearest multiple of `10^n` toward negative infinity.
+
+```c
+#include "stdlib/complex/float64/ctor.h"
+#include "stdlib/complex/float64/real.h"
+#include "stdlib/complex/float64/imag.h"
+
+stdlib_complex128_t z = stdlib_complex128( -3.141592653589793, 3.141592653589793 );
+stdlib_complex128_t out = stdlib_base_cfloorn( z, -2 );
+
+double re = stdlib_complex128_real( out );
+// returns -3.15
+
+double im = stdlib_complex128_imag( out );
+// returns 3.14
+```
+
+The function accepts the following arguments:
+
+-   **z**: `[in] stdlib_complex128_t` input value.
+-   **n**: `[in] int32_t` integer power of 10.
+
+```c
+stdlib_complex128_t stdlib_base_cfloorn( const stdlib_complex128_t z, const int32_t n );
+```
+
+</section>
+
+<!-- /.usage -->
+
+<!-- C API usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+<section class="notes">
+
+</section>
+
+<!-- /.notes -->
+
+<!-- C API usage examples. -->
+
+<section class="examples">
+
+### Examples
+
+```c
+#include "stdlib/math/base/special/cfloorn.h"
+#include "stdlib/complex/float64/ctor.h"
+#include "stdlib/complex/float64/reim.h"
+#include <stdio.h>
+
+int main() {
+    const stdlib_complex128_t x[] = {
+        stdlib_complex128( 3.14, 1.5 ),
+        stdlib_complex128( -3.14, -1.5 ),
+        stdlib_complex128( 0.0, 0.0 ),
+        stdlib_complex128( 0.0/0.0, 0.0/0.0 )
+    };
+
+    stdlib_complex128_t v;
+    stdlib_complex128_t y;
+    double re1;
+    double im1;
+    double re2;
+    double im2;
+    int i;
+    for ( i = 0; i < 4; i++ ) {
+        v = x[ i ];
+        y = stdlib_base_cfloorn( v, -2 );
+        stdlib_complex128_reim( v, &re1, &im1 );
+        stdlib_complex128_reim( y, &re2, &im2 );
+        printf( "cfloorn(%lf + %lfi, -2) = %lf + %lfi\n", re1, im1, re2, im2 );
+    }
+}
+```
+
+</section>
+
+<!-- /.examples -->
+
+</section>
+
+<!-- /.c -->
 
 <!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->
 
@@ -187,7 +278,7 @@ for ( i = 0; i < 100; i++ ) {
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -230,8 +321,8 @@ Copyright &copy; 2016-2025. The Stdlib [Authors][stdlib-authors].
 
 -->
 
-[chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
-[chat-url]: https://app.gitter.im/#/room/#stdlib-js_stdlib:gitter.im
+[chat-image]: https://img.shields.io/badge/zulip-join_chat-brightgreen.svg
+[chat-url]: https://stdlib.zulipchat.com
 
 [stdlib]: https://github.com/stdlib-js/stdlib
 
@@ -254,11 +345,11 @@ Copyright &copy; 2016-2025. The Stdlib [Authors][stdlib-authors].
 
 <!-- <related-links> -->
 
-[@stdlib/math/base/special/cceiln]: https://github.com/stdlib-js/math-base-special-cceiln/tree/deno
+[@stdlib/math/base/special/cceiln]: https://github.com/stdlib-js/math-base-special-cceiln
 
-[@stdlib/math/base/special/cfloor]: https://github.com/stdlib-js/math-base-special-cfloor/tree/deno
+[@stdlib/math/base/special/cfloor]: https://github.com/stdlib-js/math-base-special-cfloor
 
-[@stdlib/math/base/special/croundn]: https://github.com/stdlib-js/math-base-special-croundn/tree/deno
+[@stdlib/math/base/special/croundn]: https://github.com/stdlib-js/math-base-special-croundn
 
 <!-- </related-links> -->
 
