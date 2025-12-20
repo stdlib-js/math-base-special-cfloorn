@@ -69,47 +69,21 @@ Rounds each component of a double-precision complex floating-point number to the
 
 ```javascript
 var Complex128 = require( '@stdlib/complex-float64-ctor' );
-var real = require( '@stdlib/complex-float64-real' );
-var imag = require( '@stdlib/complex-float64-imag' );
 
 // Round components to 2 decimal places:
 var v = cfloorn( new Complex128( -3.141592653589793, 3.141592653589793 ), -2 );
-// returns <Complex128>
-
-var re = real( v );
-// returns -3.15
-
-var im = imag( v );
-// returns 3.14
+// returns <Complex128>[ -3.15, 3.14 ]
 
 // If n = 0, `cfloorn` behaves like `cfloor`:
 v = cfloorn( new Complex128( -3.141592653589793, 3.141592653589793 ), 0 );
-// returns <Complex128>
-
-re = real( v );
-// returns -4.0
-
-im = imag( v );
-// returns 3.0
+// returns <Complex128>[ -4.0, 3.0 ]
 
 // Round components to the nearest thousand:
 v = cfloorn( new Complex128( -12368.0, 12368.0 ), 3 );
-// returns <Complex128>
-
-re = real( v );
-// returns -13000.0
-
-im = imag( v );
-// returns 12000.0
+// returns <Complex128>[ -13000.0, 12000.0 ]
 
 v = cfloorn( new Complex128( NaN, NaN ), 0 );
-// returns <Complex128>
-
-re = real( v );
-// returns NaN
-
-im = imag( v );
-// returns NaN
+// returns <Complex128>[ NaN, NaN ]
 ```
 
 </section>
@@ -124,21 +98,13 @@ im = imag( v );
 
     ```javascript
     var Complex128 = require( '@stdlib/complex-float64-ctor' );
-    var real = require( '@stdlib/complex-float64-real' );
-    var imag = require( '@stdlib/complex-float64-imag' );
 
     var x = -0.2 - 0.1;
     // returns -0.30000000000000004
 
     // Should round components to 0.3:
     var v = cfloorn( new Complex128( x, x ), -16 );
-    // returns <Complex128>
-
-    var re = real( v );
-    // returns -0.3000000000000001
-
-    var im = imag( v );
-    // returns -0.3000000000000001
+    // returns <Complex128>[ -0.3000000000000001, -0.3000000000000001 ]
     ```
 
 </section>
@@ -355,8 +321,8 @@ Copyright &copy; 2016-2025. The Stdlib [Authors][stdlib-authors].
 
 -->
 
-[chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
-[chat-url]: https://app.gitter.im/#/room/#stdlib-js_stdlib:gitter.im
+[chat-image]: https://img.shields.io/badge/zulip-join_chat-brightgreen.svg
+[chat-url]: https://stdlib.zulipchat.com
 
 [stdlib]: https://github.com/stdlib-js/stdlib
 
