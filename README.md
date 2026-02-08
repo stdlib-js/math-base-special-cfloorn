@@ -42,7 +42,7 @@ limitations under the License.
 ## Usage
 
 ```javascript
-import cfloorn from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-cfloorn@deno/mod.js';
+import cfloorn from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-cfloorn@v0.2.3-deno/mod.js';
 ```
 
 #### cfloorn( z, n )
@@ -103,7 +103,7 @@ v = cfloorn( new Complex128( NaN, NaN ), 0 );
 import Complex128 from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float64-ctor@deno/mod.js';
 import uniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-uniform@deno/mod.js';
 import randint from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-discrete-uniform@deno/mod.js';
-import cfloorn from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-cfloorn@deno/mod.js';
+import cfloorn from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-cfloorn@v0.2.3-deno/mod.js';
 
 var z;
 var w;
